@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 let notes = [
   {
@@ -26,7 +27,9 @@ const generateId = () => {
   return maxId + 1
 }
 
-app.use(express.json()) //json perser
+app.use(express.static('dist'));
+app.use(express.json()); //json perser
+app.use(cors());
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
@@ -64,6 +67,19 @@ app.post('/api/notes', (request, response) => {
   response.json(note)
 })
 
+app.put('/api/notes/:id', (request, response) => {
+  const id = Number(request.params.id);
+  const index = notes.findIndex(n => n.id === id);
+
+  if (index < 0) return response.status(404).send('Note not found.');
+
+  let updatedNote = {...request.body, id};
+
+  notes.splice(index, 1, updatedNote);
+
+  response.json(updatedNote);
+})
+
 app.delete('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   notes = notes.filter(note => note.id !== id)
@@ -75,7 +91,7 @@ app.get('/api/notes', (request, response) => {
   response.json(notes)
 });
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 });
