@@ -14,3 +14,15 @@ Content-Type: application/json
   "content": "Another Note",
   "important": false
 }
+
+###
+PUT http://localhost:3001/api/notes/6555090e934602c2a43a3b59
+Content-Type: application/json
+
+{
+  "content": "Updated. Big Time.",
+  "important": false
+}
+
+###
+DELETE http://localhost:3001/api/notes/6555090e934602c2a43a3b59
