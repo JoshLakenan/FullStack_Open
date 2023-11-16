@@ -1,0 +1,24 @@
+GET http://localhost:3003/api/blogs
+###
+
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "A great blog",
+  "author": "Josh Lakenan",
+  "url": "exampleblog.com",
+  "likes": 100
+}
+
+###
+
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Blog 2",
+  "author": "Bill Nye",
+  "url": "exampleblog.com",
+  "likes": 51
+}
