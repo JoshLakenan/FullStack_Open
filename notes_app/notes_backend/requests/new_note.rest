@@ -1,0 +1,30 @@
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "VS code rest client is a pretty handy tool",
+  "important": true,
+  "user": "6557ee8d82b284d549a601f7"
+}
+
+###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "Another Note",
+  "important": false
+}
+
+###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY1NTdlZThkODJiMjg0ZDU0OWE2MDFmNyIsImlhdCI6MTcwMDMyNDAyN30.EH2rnzuKPrICzUKzRhJNQeepck8J121ewPXipxTB4yY
+
+{
+  "content": "Token notes.",
+  "important": false
+}
+
+###
+DELETE http://localhost:3001/api/notes/6555090e934602c2a43a3b59
