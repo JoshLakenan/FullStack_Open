@@ -74,6 +74,7 @@ const App = () => {
         setNotes(notes.concat(newNote))
         setNewNote('')
       })
+      .catch(error => console.log(error))
   }
 
   const handleNoteChange = (event) => {
