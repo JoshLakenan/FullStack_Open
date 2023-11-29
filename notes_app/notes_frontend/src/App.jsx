@@ -7,6 +7,10 @@ import LoginForm from './components/LoginForm'
 import NoteForm from './components/NoteForm'
 import noteService from './services/notes'
 import loginService from './services/login'
+import {
+  BrowserRouter as Router,
+  Routes, Route, Link
+} from 'react-router-dom'
 
 const App = () => {
   const [notes, setNotes] = useState([])
@@ -138,6 +142,11 @@ const App = () => {
   return (
     <div>
       <h1>Notes</h1>
+      <Routes>
+        <Route path="/notes" element={<Notes />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
 
       <Notification message={errorMessage} />
 
